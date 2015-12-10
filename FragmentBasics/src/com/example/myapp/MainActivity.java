@@ -15,13 +15,14 @@
  */
 package com.example.myapp;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.widget.TextView;
 
-public class MainActivity extends FragmentActivity
-        implements HeadlinesFragment.OnHeadlineSelectedListener {
-
+public class MainActivity extends FragmentActivity implements HeadlinesFragment.OnHeadlineSelectedListener {
+    private static Drawable sBackground;
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,8 @@ public class MainActivity extends FragmentActivity
             if (savedInstanceState != null) {
                 return;
             }
+            TextView label = new TextView(this);
+            label.setBackgroundDrawable(sBackground);
 
             // Create an instance of ExampleFragment
             HeadlinesFragment firstFragment = new HeadlinesFragment();
